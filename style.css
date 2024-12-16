@@ -267,7 +267,7 @@ body {
 @media screen and (max-width: 1230px) {
     body {
         display: flex;
-        width: 100%;
+        width: 95%;
         align-items: center;
         justify-content: center;
         background-color: #f07167;
