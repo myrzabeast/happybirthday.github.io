@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С днём рождения!</title>
+    <style>
+        body,
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .headpart {
+            border: 5px solid rgb(255, 255, 255);
+            border-radius: 20px;
+            background-color: rgb(255 255 255 / 30%);
+            backdrop-filter: blur(3px);
+            overflow: hidden;
+            align-content: center;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 18px;
+            color: whitesmoke;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: black;
+        }
+
+        img {
+            width: 95%;
+            height: auto;
+            border: 5px solid #ffffff;
+            border-radius: 15px;
+        }
+
+        .shortinfo {
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            color: whitesmoke;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: black;
+        }
+
+        main {
+            background-color: rgb(255 255 255 / 30%);
+            backdrop-filter: blur(3px);
+            border-radius: 20px;
+        }
+
+        .wrapper {
+            border: 5px solid rgb(255, 255, 255);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .wrapper div {
+            min-height: 200px;
+            padding: 20px;
+        }
+
+        #one {
+            float: left;
+            width: 400px;
+            margin-left: 25px;
+            margin-top: 45px;
+        }
+
+        #two {
+            overflow: hidden;
+        }
+
+        ol {
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        details {
+            border: 5px solid rgb(255, 0, 0);
+            border-radius: 20px;
+            padding: 0.5em 0.5em 0;
+            background-color: rgb(255 255 255 / 100%);
+            backdrop-filter: blur(3px);
+            color: whitesmoke;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: black;
+            font-size: 20px;
+        }
+
+        .backgr {
+            position: fixed;
+            z-index: -3;
+            top: 0;
+            bottom: 0x;
+            left: 0;
+            right: 0;
+        }
+
+        summary {
+            font-weight: bold;
+            margin: -0.5em -0.5em 0;
+            padding: 0.5em;
+        }
+
+        details[open] {
+            padding: 0.5em;
+        }
+
+        details[open] summary {
+            border-bottom: 5px solid rgb(255, 0, 0);
+            margin-bottom: 0.5em;
+        }
+
+        marquee {
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            width: 250px;
+            height: 50px;
+            background-color: rgb(255 255 255 / 50%);
+            backdrop-filter: blur(20px);
+            color: whitesmoke;
+            border: 0px solid white;
+            border-radius: 15px;
+        }
+
+        a {
+            font-size: 20px;
+            font-weight: bold;
+            color: whitesmoke;
+            text-decoration: none;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: black;
+        }
+
+        #box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            margin-top: -60px;
+        }
+
+        .gradient-border {
+            --borderWidth: 15px;
+            position: relative;
+            border-radius: var(--borderWidth);
+        }
+
+        .gradient-border:after {
+            content: '';
+            position: absolute;
+            width: 265px;
+            height: 65px;
+            background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+            z-index: -1;
+            animation: animatedgradient 3s ease alternate infinite;
+            background-size: 300% 300%;
+            border-radius: 20px;
+        }
+
+
+        @keyframes animatedgradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media screen and (max-width: 1230px) {
+            #one {
+                float: none;
+                margin-right: 0;
+                width: auto;
+                padding-left: 20px;
+                border: 0;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="headpart">
+            <i>
+                <h1>С днём рождения, Мама!</h1>
+            </i>
+        </div>
+    </header>
+    <div class="backgr">
+        <canvas id="canvas"></canvas>
+    </div>
+    <br>
+    <main>
+        <div class="wrapper">
+            <div id="one">
+                <center>
+                    <img class="mySlides" src="photo1.jpg" style="width:100%">
+                    <img class="mySlides" src="photo3.jpg" style="width:100%">
+                    <img class="mySlides" src="photo4.jpg" style="width:100%">
+                    <img class="mySlides" src="photo5.jpg" style="width:100%">
+                    <img class="mySlides" src="photo6.jpg" style="width:100%">
+                    <img class="mySlides" src="photo7.jpg" style="width:100%">
+                    <img class="mySlides" src="photo8.jpg" style="width:100%">
+                    <img class="mySlides" src="photo9.jpg" style="width:100%">
+                </center>
+                <br>
+                <center>
+                    <div class="gradient-border" id="box"><button><a href="giftbox.html">Перейти к сюрпризу</a></button>
+                    </div>
+                </center>
+            </div>
+            <div id="two">
+                <div class="shortinfo">
+                    <i>
+                        <h2>
+                            Мамочка, добрая и дорогая,<br>
+                            Неповторимая, сердцу родная,<br>
+                            Ни для кого пусть не будет секретом —<br>
+                            Вы самая лучшая Мама на свете!<br>
+                            <br>
+                            Спасибо Вам за бессонные ночи,<br>
+                            Мы ценим и любим Вас очень-очень!<br>
+                            Желаем Вам в день волшебный рождения<br>
+                            Веселья, удачи, любви и везения.<br>
+                            <br>
+                            Будьте самой красивой, счастливой и нежной,<br>
+                            Во всем мы поможем, поддержим, конечно.<br>
+                            Пусть будет здоровье, достаток и счастье,<br>
+                            Всегда полагайтесь на наше участие.<br>
+                            <br>
+                            И помните, Мамуля, и верьте, что на свете<br>
+                            Вас обожают любимые дети!
+
+                            <h3 style="text-align: right;"><br>С уважением и любовью, Жанторе и Диана</h3>
+                        </h2>
+                    </i>
+                </div>
+            </div>
+        </div>
+
+    </main><br>
+    <!-- <details>
+        <summary>ПОДРОБНЕЕ</summary>
+        <marquee>ВНИМАНИЕ! Данный веб-сайт принадлежит Бекбердиеву Жанторе, и любая попытка изменить код страницы будет
+            зачтена в качестве нарушения авторских прав!</marquee>
+    </details> -->
+    <!-- <script>
+        const disabledKeys = ["c", "C", "x", "J", "u", "I"];
+      
+        const showAlert = e => {
+          e.preventDefault();
+          return alert("ВНИМАНИЕ! Непосредственное выделение и копирование текста, просмотр исходного кода страницы ЗАПРЕЩЕНЫ автором веб-сайта! (С уважением, Бекбердиев Жанторе)");
+        }
+      
+        document.addEventListener("contextmenu", e => {
+          showAlert(e);
+        });
+      
+        document.addEventListener("keydown", e => {
+          if((e.ctrlKey && disabledKeys.includes(e.key)) || e.key === "F12") {
+            showAlert(e);
+          }
+        });
+    </script> -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2500); // Change image every 2 seconds
+        }
+    </script>
+    <script>
+        window.addEventListener("resize", resizeCanvas, false);
+        window.addEventListener("DOMContentLoaded", onLoad, false);
+
+        window.requestAnimationFrame =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+
+        var canvas, ctx, w, h, particles = [], probability = 0.04,
+            xPoint, yPoint;
+
+        function onLoad() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            resizeCanvas();
+
+            window.requestAnimationFrame(updateWorld);
+        }
+
+        function resizeCanvas() {
+            if (!!canvas) {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+        }
+
+        function updateWorld() {
+            update();
+            paint();
+            window.requestAnimationFrame(updateWorld);
+        }
+
+        function update() {
+            if (particles.length < 500 && Math.random() < probability) {
+                createFirework();
+            }
+            var alive = [];
+            for (var i = 0; i < particles.length; i++) {
+                if (particles[i].move()) {
+                    alive.push(particles[i]);
+                }
+            }
+            particles = alive;
+        }
+
+        function paint() {
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = "rgba(255,102,153,0.2)";
+            ctx.fillRect(0, 0, w, h);
+            ctx.globalCompositeOperation = 'lighter';
+            for (var i = 0; i < particles.length; i++) {
+                particles[i].draw(ctx);
+            }
+        }
+
+        function createFirework() {
+            xPoint = Math.random() * (w - 200) + 100;
+            yPoint = Math.random() * (h - 200) + 100;
+            var nFire = Math.random() * 50 + 100;
+            var c = "rgb(" + (~~(Math.random() * 200 + 55)) + ","
+                + (~~(Math.random() * 200 + 55)) + "," + (~~(Math.random() * 200 + 55)) + ")";
+            for (var i = 0; i < nFire; i++) {
+                var particle = new Particle();
+                particle.color = c;
+                var vy = Math.sqrt(25 - particle.vx * particle.vx);
+                if (Math.abs(particle.vy) > vy) {
+                    particle.vy = particle.vy > 0 ? vy : -vy;
+                }
+                particles.push(particle);
+            }
+        }
+
+        function Particle() {
+            this.w = this.h = Math.random() * 4 + 1;
+
+            this.x = xPoint - this.w / 2;
+            this.y = yPoint - this.h / 2;
+
+            this.vx = (Math.random() - 0.5) * 10;
+            this.vy = (Math.random() - 0.5) * 10;
+
+            this.alpha = Math.random() * .5 + .5;
+
+            this.color;
+        }
+
+        Particle.prototype = {
+            gravity: 0.05,
+            move: function () {
+                this.x += this.vx;
+                this.vy += this.gravity;
+                this.y += this.vy;
+                this.alpha -= 0.01;
+                if (this.x <= -this.w || this.x >= screen.width ||
+                    this.y >= screen.height ||
+                    this.alpha <= 0) {
+                    return false;
+                }
+                return true;
+            },
+            draw: function (c) {
+                c.save();
+                c.beginPath();
+
+                c.translate(this.x + this.w / 2, this.y + this.h / 2);
+                c.arc(0, 0, this.w, 0, Math.PI * 2);
+                c.fillStyle = this.color;
+                c.globalAlpha = this.alpha;
+
+                c.closePath();
+                c.fill();
+                c.restore();
+            }
+        }
+    </script>
+</body>
+
+</html>
